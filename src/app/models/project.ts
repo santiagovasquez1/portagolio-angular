@@ -21,8 +21,13 @@ export class projectModel {
     image: {
         S: string
     };
-    
-    constructor(id,projectName,description,category,projectYear,lenguajes,image) {
-                
+
+    constructor(projectName,description,category,projectYear,lenguajes,image) {
+      this.projectName=projectName;
+      this.description=description;
+      this.category=category;
+      this.projectYear=projectYear;
+      this.lenguajes=lenguajes;
+      this.image=image
     }
 }

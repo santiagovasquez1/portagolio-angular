@@ -116,3 +116,56 @@ footer {
     /* padding-left: 20px;
     padding-right: 20px; */
 }
+
+
+/*Estilos generales para los formularios*/
+
+form {
+    width: 80%;
+    margin: 0px auto;
+}
+
+form label {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="email"],
+form textarea {
+    width: 40%;
+    padding: 5px;
+}
+
+form button,
+form input[type="submit"] {
+    font-size: 17px;
+    display: block;
+    padding: 5px;
+    margin-top: 15px;
+    color: white;
+    background: rgb(63, 81, 181);
+    border: 1px solid rgb(32, 45, 117);
+    cursor: pointer;
+    transition: 300ms all;
+}
+
+form button:hover,
+form input[type="submit"]:hover {
+    background: rgba(63, 81, 181, 0.8);
+}
+
+form input[disabled] {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.formError {
+    font-size: 13px;
+    padding: 3px;
+    color: red;
+    margin-left: 5px;
+}
