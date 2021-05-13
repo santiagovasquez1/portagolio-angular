@@ -206,11 +206,18 @@ form input[disabled] {
 
 .container .image {
     float: left;
-    width: 45%;
+    height: 400px;
+    width: 400px;
+    overflow: hidden;
 }
 
 .container .image img {
     width: 100%;
+    transition: color 500ms, transform 500ms;
+}
+
+.container .image img:hover {
+    transform: scale(1.15);
 }
 
 .container .data {
@@ -244,4 +251,23 @@ form input[disabled] {
 
 .button-delete:hover {
     background: rgb(158, 40, 40);
+}
+
+.errorLoad {
+    padding: 5px;
+}
+
+.errorLoad h2 {
+    border-bottom: 1px solid #ccc;
+    background: rgba(158, 40, 40, 0.50);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    display: block;
+    padding: 5px;
+}
+
+.confirm {
+    display: block;
+    font-weight: bold;
+    margin-top: 20px;
 }

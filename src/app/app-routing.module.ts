@@ -1,3 +1,4 @@
+import { EditComponent } from './components/edit/edit.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'crearProjecto',component:CreateProjectComponent},
   {path:'contacto',component:ContactComponent},
   {path:'detalle/:id',component:DetailComponent},
+  {path:'editProject/:id',component:EditComponent},
   {path:'**',component:ErrorComponent}
 ];
 

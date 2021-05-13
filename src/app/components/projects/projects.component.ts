@@ -2,6 +2,7 @@ import { GlobalService } from './../../services/global.service';
 import { projectModel } from './../../models/project';
 import { ProjectService } from './../../services/project.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-projects',
@@ -14,11 +15,13 @@ export class ProjectsComponent implements OnInit {
   public isLoad: boolean;
   public status: string;
   public url: string;
+  public confirm: boolean;
 
-  constructor(private projectService: ProjectService, private global: GlobalService) {
+  constructor(private projectService: ProjectService, private global: GlobalService, private router: Router, private route: ActivatedRoute) {
     this.isLoad = true;
     this.projects = [];
     this.url = this.global.url;
+    this.confirm=false;
   }
 
   ngOnInit(): void {
@@ -39,6 +42,15 @@ export class ProjectsComponent implements OnInit {
     }, error => {
       this.status = "error";
       this.isLoad = false;
+    });
+  }
+
+  deleteProject(id: string) {
+    this.projectService.deleteProject(id).subscribe(response => {
+      this.router.navigate(['/proyectos']);
+    }, error => {
+      console.log(error);
+      this.status = JSON.stringify(error);
     });
   }
 

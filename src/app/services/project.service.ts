@@ -33,9 +33,22 @@ export class ProjectService {
     return this.http.get(url, { headers: headers });
   }
 
-  uploadFile(id: string, file: File) {
-    const url = `${this.global.url}/uploadImage/${id}`;
+  // uploadFile(id: string, file: File) {
+  //   const url = `${this.global.url}/uploadImage/${id}`;
+  //   let headers = new HttpHeaders().set('Content-Type', 'application/json');
+  //   return this.http.post(url, file, { headers: headers });
+  // }
+
+  deleteProject(id:string):Observable<any>{
+    const url = `${this.global.url}deleteProject/${id}`;
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.post(url, file, { headers: headers });
+    return this.http.delete(url, {headers:headers});
+  }
+
+  updateProject(id:string, project):Observable<any>{
+    const url = `${this.global.url}updateProject/${id}`;
+    let params = JSON.stringify(project);
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.put(url,params, {headers:headers});
   }
 }

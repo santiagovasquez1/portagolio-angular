@@ -14,9 +14,15 @@ export class DetailComponent implements OnInit {
 
   public url: string;
   public project: projectModel;
+  public isLoad: boolean;
+  public status: string;
+  public confirm: boolean;
 
   constructor(private projectService: ProjectService, private global: GlobalService, private router: Router, private route: ActivatedRoute) {
     this.url = global.url;
+    this.isLoad = true;
+    this.status = '';
+    this.confirm = false;
   }
 
   ngOnInit(): void {
@@ -24,17 +30,29 @@ export class DetailComponent implements OnInit {
       let id = params.id;
       this.loadProject(id);
     });
-
   }
 
   loadProject(id: string) {
     this.projectService.getProject(id).subscribe(response => {
       this.project = new projectModel(response.project.projectName.S, response.project.description.S, response.project.category.S, response.project.projectYear.N, response.project.lenguajes.S, response.project.image.S);
-      console.log(response);
-
+      this.project.id = response.project.id.S;
+      this.isLoad = false;
     }, error => {
-      console.log(<any>error);
+      this.isLoad = false;
+      this.status = JSON.stringify(error);
     });
   }
 
+  deleteProject(id: string) {
+    this.projectService.deleteProject(id).subscribe(response => {
+      this.router.navigate(['/proyectos']);
+    }, error => {
+      console.log(error);
+      this.status = JSON.stringify(error);
+    });
+  }
+
+  setConfirm(confirm:boolean) {
+    this.confirm = confirm;
+  }
 }

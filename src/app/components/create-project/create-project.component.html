@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="projectModel">
     <h2>{{title}}</h2>
     <div class="message success" *ngIf="isError=='success'">
         El proyecto se ha crado correctamente, puedes <a [routerLink]="['/detalle',idProject]" routerLinkActive="router-link-active">verlo aquí</a>
@@ -35,6 +35,9 @@
         </p>
         <p>
             <label for="image">Imagen del proyecto</label>
+            <span *ngIf="projectModel.image" style="float: none;">
+                <img src="{{url+'getImage/'+projectModel.image}}" *ngIf="projectModel.image" alt={{projectModel.image}} style="width: 100px;">
+            </span><br>
             <input type="file" name="image" id="image" placeholder="Subir imagen" (change)="uploadImageEvent($event)">
         </p>
         <input type="submit" value="Enviar" [disabled]="!projectForm.form.valid||buttonIsDisabled">
