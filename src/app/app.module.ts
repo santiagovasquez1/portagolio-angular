@@ -9,6 +9,7 @@ import { CreateProjectComponent } from './components/create-project/create-proje
 import { ContactComponent } from './components/contact/contact.component';
 import { ErrorComponent } from './components/error/error.component'
 import { FormsModule } from '@angular/forms';
+import { DetailComponent } from './components/detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     ProjectsComponent,
     CreateProjectComponent,
     ContactComponent,
-    ErrorComponent
+    ErrorComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

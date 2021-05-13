@@ -1,1 +1,17 @@
-<p>projects works!</p>
+<div class="projectsContainer">
+    <h2>Proyectos Realizados</h2>
+    <p *ngIf="isLoad">Cargando proyectos .....</p>
+    <div class="projectInfo" *ngFor="let project of projects">
+        <h3>{{project.projectName}}</h3>
+        <div class="info">
+            <p><b>Descripción del proyecto :</b> {{project.description}}</p>
+            <p><b>Categoria del proyecto :</b> {{project.category}}</p>
+            <p><b>Año de cración del proyecto :</b>{{project.projectYear}}</p>
+            <p><b>Lenguajes :</b> {{project.lenguajes}}</p>
+        </div>
+        <div class="image">
+            <img src="{{url+'getImage/'+project.image}}" alt={{project.image}} *ngIf="project.image">
+        </div>
+        <div class="clearFix"></div>
+    </div>
+</div>

@@ -1,3 +1,4 @@
+import { DetailComponent } from './components/detail/detail.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {AboutComponent} from './components/about/about.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path:'proyectos',component:ProjectsComponent},
   {path:'crearProjecto',component:CreateProjectComponent},
   {path:'contacto',component:ContactComponent},
+  {path:'detalle',component:DetailComponent},
   {path:'**',component:ErrorComponent}
 ];
 

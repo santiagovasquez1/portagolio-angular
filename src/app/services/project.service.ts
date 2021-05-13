@@ -13,17 +13,23 @@ export class ProjectService {
   }
 
 
-  homeService(): Observable<projectModel[]> {
+  homeService(): Observable<any> {
     const url = this.global.url + "home";
     console.log('Request is sent!');
-    return this.http.get<projectModel[]>(url);
+    return this.http.get<any>(url);
   }
 
-  saveProject(project: projectModel): Observable<projectModel> {
-    const url = "localhost:3700/api/saveProject/";
+  saveProject(project: projectModel): Observable<any> {
+    const url = `${this.global.url}/saveProject`;
     let params = JSON.stringify(project);
-    let headers=new HttpHeaders().set('Content-Type','application/json');
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-    return this.http.post<projectModel>(url,params,{headers:headers});
+    return this.http.post<any>(url, params, { headers: headers });
+  }
+
+  uploadFile(id: string, file: File) {
+    const url = `${this.global.url}/uploadImage/${id}`;
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.post(url, file, { headers: headers });
   }
 }

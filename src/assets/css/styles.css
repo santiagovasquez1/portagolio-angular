@@ -169,3 +169,23 @@ form input[disabled] {
     color: red;
     margin-left: 5px;
 }
+
+.message {
+    padding: 5px;
+    border: 1px solid #eee;
+    width: 50%;
+}
+
+.success {
+    background: green;
+    color: white;
+}
+
+.success a {
+    color: white;
+}
+
+.failed {
+    background: red;
+    color: white;
+}
