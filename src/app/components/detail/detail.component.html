@@ -1,1 +1,17 @@
-<p>detail works!</p>
+<div class="container">
+    <div class="image">
+        <img src="{{url+'getImage/'+project.image}}" *ngIf="project.image" alt={{project.image}}>
+    </div>
+    <div class="data">
+        <h1>{{project.projectName}}</h1>
+        <h3>{{project.category}}</h3>
+        <p>{{project.description}}</p>
+        <p>{{project.lenguajes}}</p>
+        <p>
+            <a href="#" class="button-edit">Editar proyecto</a>
+            <a href="#" class="button-delete">Borrar proyecto</a>
+        </p>
+    </div>
+
+</div>
+<div class="clearFix"></div>

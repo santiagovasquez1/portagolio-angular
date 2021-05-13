@@ -17,6 +17,7 @@ export class CreateProjectComponent implements OnInit {
   public isError: string;
   public filesToUpload: Array<File>
   public buttonIsDisabled: boolean;
+  public idProject: string;
 
   constructor(private projectService: ProjectService, private uploadImageService: UploadImageService, private global: GlobalService) {
     this.title = "Crear Proyecto";
@@ -31,10 +32,12 @@ export class CreateProjectComponent implements OnInit {
   onSubmit(form) {
 
     this.buttonIsDisabled = true;
-    this.projectService.saveProject(this.projectModel).subscribe(result => {
-      let url = `${this.global.url}/upLoadImage/${result.projects.id.S}`;
+    this.projectService.saveProject(this.projectModel).subscribe(response => {
+
+      this.idProject = response.projects.id.S
+      let url = `${this.global.url}/upLoadImage/${response.projects.id.S}`;
+
       this.uploadImageService.makeFileRequest(url, [], this.filesToUpload, 'image').then(result => {
-        console.log(result);
         this.projectModel = new projectModel("", "", "", "", "", "");
         this.isError = 'success';
         form.reset();

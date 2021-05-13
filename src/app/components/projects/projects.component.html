@@ -2,7 +2,7 @@
     <h2>Proyectos Realizados</h2>
     <p *ngIf="isLoad">Cargando proyectos .....</p>
     <div class="projectInfo" *ngFor="let project of projects">
-        <h3>{{project.projectName}}</h3>
+        <h3><a [routerLink]="['/detalle',project.id]" routerLinkActive="router-link-active">{{project.projectName}}</a></h3>
         <div class="info">
             <p><b>Descripción del proyecto :</b> {{project.description}}</p>
             <p><b>Categoria del proyecto :</b> {{project.category}}</p>

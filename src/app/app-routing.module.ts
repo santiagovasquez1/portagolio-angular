@@ -13,7 +13,7 @@ const routes: Routes = [
   {path:'proyectos',component:ProjectsComponent},
   {path:'crearProjecto',component:CreateProjectComponent},
   {path:'contacto',component:ContactComponent},
-  {path:'detalle',component:DetailComponent},
+  {path:'detalle/:id',component:DetailComponent},
   {path:'**',component:ErrorComponent}
 ];
 

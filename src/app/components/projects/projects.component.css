@@ -24,6 +24,11 @@
     padding: 5px;
 }
 
+.projectInfo a {
+    text-decoration: none;
+    color: black;
+}
+
 .info {
     width: 60%;
     float: left;

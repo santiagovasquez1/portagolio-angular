@@ -141,7 +141,9 @@ form textarea {
 }
 
 form button,
-form input[type="submit"] {
+form input[type="submit"],
+.button-edit,
+.button-delete {
     font-size: 17px;
     display: block;
     padding: 5px;
@@ -188,4 +190,58 @@ form input[disabled] {
 .failed {
     background: red;
     color: white;
+}
+
+.container {
+    padding: 50px;
+    padding-top: 10px;
+}
+
+.container h2 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.container .image {
+    float: left;
+    width: 45%;
+}
+
+.container .image img {
+    width: 100%;
+}
+
+.container .data {
+    float: left;
+    width: 40%;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.button-edit,
+.button-delete {
+    width: 40%;
+    float: left;
+    margin-right: 10px;
+    text-decoration: none;
+    transition: 300ms all;
+    text-align: center;
+}
+
+.button-edit {
+    background: rgb(255, 165, 0);
+}
+
+.button-edit:hover {
+    background: rgb(192, 137, 34);
+}
+
+.button-delete {
+    background: #ff0000;
+}
+
+.button-delete:hover {
+    background: rgb(158, 40, 40);
 }

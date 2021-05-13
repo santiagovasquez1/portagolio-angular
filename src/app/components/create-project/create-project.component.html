@@ -1,7 +1,7 @@
 <div class="container">
     <h2>{{title}}</h2>
     <div class="message success" *ngIf="isError=='success'">
-        El proyecto se ha crado correctamente, puedes <a href="#">verlo aquí</a>
+        El proyecto se ha crado correctamente, puedes <a [routerLink]="['/detalle',idProject]" routerLinkActive="router-link-active">verlo aquí</a>
     </div>
 
     <div class="message failed" *ngIf="isError=='error'">

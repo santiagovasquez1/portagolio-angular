@@ -27,6 +27,12 @@ export class ProjectService {
     return this.http.post<any>(url, params, { headers: headers });
   }
 
+  getProject(id: string):Observable<any> {
+    const url = `${this.global.url}get/${id}`;
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.get(url, { headers: headers });
+  }
+
   uploadFile(id: string, file: File) {
     const url = `${this.global.url}/uploadImage/${id}`;
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
