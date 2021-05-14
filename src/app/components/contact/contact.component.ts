@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
 
 @Component({
   selector: 'app-contact',
@@ -7,13 +8,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  public widthSlider: number
+  public anchuraToSlider: number;
+  public autor: any
+  @ViewChild('titulo') texto: any;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
-    $("#logo").on('click',function(e){
-      e.preventDefault();
-      $(".menu").css("background", "green").css("height","50px");
-    });
+    //ViewChilds en angular
+    //Nombrar el elemento html con #
+
+    var op1 = document.getElementById('titulo').innerHTML;
+    console.log(op1);
+  }
+
+  cargarSlider() {
+    this.anchuraToSlider = null;
+    this.anchuraToSlider = this.widthSlider;
+  }
+
+  resetSlider() {
+    this.anchuraToSlider = null;
+  }
+
+  getAutor(event) {
+    this.autor = event;
+  }
+
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    console.log(this.texto);
   }
 
 }
